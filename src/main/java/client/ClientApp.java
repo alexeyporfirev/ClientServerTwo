@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class ClientApp {
 
     private static String host = "netology.homework";
-    private static int hostPort = 1234;
+    private static int hostPort = 1235;
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {

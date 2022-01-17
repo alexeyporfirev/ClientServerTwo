@@ -9,16 +9,16 @@ import java.net.Socket;
 
 public class ServerApp {
 
-    private static int port = 1234;
+    private static int port = 1235;
 
     public static void main(String[] args) {
         System.out.println("Server startup!");
 
         while (true) {
-            try (ServerSocket serverSocket = new ServerSocket(port)) {
-                Socket clientSocket = serverSocket.accept();
-                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            try (ServerSocket serverSocket = new ServerSocket(port);
+                 Socket clientSocket = serverSocket.accept();
+                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
                 System.out.println("New connection accepted: ");
                 out.println("Write your name: ");
                 String name = in.readLine();
